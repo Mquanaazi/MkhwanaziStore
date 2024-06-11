@@ -11,6 +11,7 @@ body{
 header{
 margin-top: 2rem;
 
+
 }
 
 main{
@@ -21,7 +22,12 @@ text-align:center;
 footer{
     position:fixed;
     bottom:0px;
-    margin-left: 50%;
+    margin-left: 85%;
+}
+#footer{
+  position:static;
+  bottom:0px;
+  margin-left: 85%;
 }
 .gif{
     width:30%;
@@ -56,4 +62,22 @@ footer{
   img{
     width: 32%;
     height:50%;
+  }
+  p{
+    color: rgb(3, 3, 94);
+    justify-content: center;
+  }
+  @media screen{
+    
+    footer{
+      position:absolute;
+      bottom:0px;
+      margin-left: 45%;
+  }
+  #footer{
+    position:static;
+    bottom:0px;
+    margin-left: 45%;
+}
+
   }

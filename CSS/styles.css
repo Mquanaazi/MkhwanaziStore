@@ -25,7 +25,7 @@ footer{
     margin-left: 85%;
 }
 #footer{
-  position:static;
+  position:absolute;
   bottom:0px;
   margin-left: 85%;
 }
@@ -80,4 +80,13 @@ footer{
     margin-left: 45%;
 }
 
+  }
+  .image {
+    width: 30%; 
+    height: 45%; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    margin: 10px; 
+   text-wrap: nowrap;
+   
   }

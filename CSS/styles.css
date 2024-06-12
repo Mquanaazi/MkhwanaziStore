@@ -70,7 +70,7 @@ footer{
   @media screen{
     
     footer{
-      position:absolute;
+      position:fixed;
       bottom:0px;
       margin-left: 45%;
   }
@@ -89,4 +89,52 @@ footer{
     margin: 10px; 
    text-wrap: nowrap;
    
+  }
+  #payment{
+    width: 40%;
+    height: 15%;
+  }
+  #form{
+   /* justify-content: flex-end; */
+   margin-top: 5%;
+   margin-left: 75%;
+   position:absolute;
+  }
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #333;
+    border-top: 5px solid #ff69b4;
+    animation: spin 5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  #cart-icon-container{
+    margin-left: 75%;
+    ;
+  }
+  #search-sort{
+    position:fixed;
+    margin-top: 1%;
+    ;
   }

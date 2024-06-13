@@ -10,7 +10,7 @@ function CreateItem(id, name, category, image, description, price, quantity) {
     this.quantity = quantity;
 }
 
-   let item1 = new CreateItem(1,"Bucket-Hat","hat","https://mquanaazi.github.io/huluImages/anotherMan.jpg","Men's black bucket hat",850,1)
+   let item1 = new CreateItem(1,"Bucket-Hat","hat","https://mquanaazi.github.io/huluImages/anotherMan.jpg","Men's black bucket hat",855,1)
    let item2 = new CreateItem(2,"Winter-Hat","hat","https://mquanaazi.github.io/huluImages/anotherWoman.webp","unisex black winter hat",650,1)
    let item3 = new CreateItem(3,"Bucket-Hat","hat","https://mquanaazi.github.io/huluImages/backetHat.webp","unisex fabiani bucket hat",850,1)
    let item4 = new CreateItem(4,"Back-Pack","bag","https://mquanaazi.github.io/huluImages/backPack.webp","unisex mustard back pack",899.99,1)
@@ -27,7 +27,7 @@ function CreateItem(id, name, category, image, description, price, quantity) {
    let item15 = new CreateItem(15,"Sun-Glasses","shades","https://mquanaazi.github.io/huluImages/woman.png","women summer sun glasses.",250,1)
    let item16 = new CreateItem(16,"Wallet","purse","https://mquanaazi.github.io/huluImages/womanWallet.webp","women's purse/wallet",450,1)
    let item17 = new CreateItem(17,"Sun-Glasses","shades","https://mquanaazi.github.io/huluImages/womanZaza.webp","women's shades/sun glasses",350,1)
-   let item18 = new CreateItem(18,"zaza","shades","https://mquanaazi.github.io/huluImages/zazael.webp","unisex sun glasses",250,1)
+   let item18 = new CreateItem(18,"zaza","shades","https://mquanaazi.github.io/huluImages/zazael.webp","unisex sun glasses",255,1)
 
    let items=[item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12,item13,item14,item15,item16,item17,item18]; 
 

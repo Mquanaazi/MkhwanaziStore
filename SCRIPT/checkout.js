@@ -19,7 +19,7 @@ function generateTableRow(item) {
     <td>${item.id}</td>
     <td>${item.name}</td>
     <td>${item.category}</td>
-    <td><img src="${item.image}" alt="picture" width ="5px" height="5px" ></td>
+    <td><img src="${item.image}" alt="picture" </td>
     <td>${item.description}</td>
     <td>${item.price}</td>
     <td>${item.quantity}</td>

@@ -180,5 +180,20 @@ document.querySelectorAll("a").forEach((link) => {
 });
 
 //_______________________________________________
-
+ // Add event listener to contact form
+ document.getElementById('contact-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  // Get form data
+  const formData = new FormData(e.target);
+  // Send form data to server or do something with it
+  console.log(formData);
+});
+// Add event listener to newsletter form
+document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  // Get form data
+  const formData = new FormData(e.target);
+  // Send form data to server or do something with it
+  console.log(formData);
+});
 

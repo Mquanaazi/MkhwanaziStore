@@ -103,30 +103,60 @@ function displayItems(items) {
 // Event listeners
 
 // Initial display of items
-document.querySelector('.sort-by-name button').addEventListener("click", sortByNameButton );
-document.querySelector('.sort-by-price button').addEventListener("click", sortByPriceButton);
-document.querySelector('.search-button button').addEventListener("click", searchButton);
-displayItems(items);   
+// document.querySelector('.sort-by-name button').addEventListener("click", sortByNameButton );
+// document.querySelector('.sort-by-price button').addEventListener("click", sortByPriceButton);
+// document.querySelector('.search-button button').addEventListener("click", searchButton);
+// displayItems(items);   
 
-//write a code for the search button to filter the data
-const searchInput = document.querySelector('.search-input input');
-const searchButton = document.querySelector('.search-button button');
-const sortByNameButton = document.querySelector('.sort-by-name button');
-const sortByPriceButton = document.querySelector('.sort-by-price button');
+// //write a code for the search button to filter the data
+// const searchInput = document.querySelector('.search-input input');
+// const searchButton = document.querySelector('.search-button button');
+// const sortByNameButton = document.querySelector('.sort-by-name button');
+// const sortByPriceButton = document.querySelector('.sort-by-price button');
 
-searchButton.addEventListener('click', () => {
-  const searchValue = searchInput.value.toLowerCase();
-  const searchByNumber = searchInput.value;
-  const filteredItems = items.filter((item) => {
-    return (
-      item.id.toString().includes(searchValue) ||
-      item.name.toLowerCase().includes(searchValue) ||
-      item.category.toLowerCase().includes(searchValue) ||
-      item.description.toLowerCase().includes(searchValue) ||
-      item.price.toString().includes(searchByNumber) ||
-      item.quantity.toString().includes(searchByNumber)
-    );
-  });
+// searchButton.addEventListener('click', () => {
+//   const searchValue = searchInput.value.toLowerCase();
+//   const searchByNumber = searchInput.value;
+//   const filteredItems = items.filter((item) => {
+//     return (
+//       item.id.toString().includes(searchValue) ||
+//       item.name.toLowerCase().includes(searchValue) ||
+//       item.category.toLowerCase().includes(searchValue) ||
+//       item.description.toLowerCase().includes(searchValue) ||
+//       item.price.toString().includes(searchByNumber) ||
+//       item.quantity.toString().includes(searchByNumber)
+//     );
+//   });
+
+//   main.innerHTML = ''; // clear the main container
+//   filteredItems.forEach((item) => {
+//     const card = document.createElement('div');
+//     card.className = 'card';
+//     card.innerHTML = `
+//       <img src="${item.image}" alt="${item.name}">
+//       <h2>${item.name}</h2>
+//       <p>Category: ${item.category}</p>
+//       <p>Price: ${item.price}</p>
+//       <p>Quantity: ${item.quantity}</p>
+//     `;
+//     main.appendChild(card);
+//   });
+// });
+// sortByNameButton.addEventListener('click', () => {
+//   items.sort((a, b) => a.name.localeCompare(b.name));
+//   displayItems(items);
+// });
+
+// sortByPriceButton.addEventListener('click', () => {
+//   items.sort((a, b) => a.price - b.price);
+//   displayItems(items);
+// });
+const filterButton = document.querySelector('.filter-button button');
+const categorySelect = document.querySelector('.category-select select');
+
+filterButton.addEventListener('click', () => {
+  const selectedCategory = categorySelect.value;
+  const filteredItems = items.filter((item) => item.category === selectedCategory);
 
   main.innerHTML = ''; // clear the main container
   filteredItems.forEach((item) => {
@@ -141,13 +171,4 @@ searchButton.addEventListener('click', () => {
     `;
     main.appendChild(card);
   });
-});
-sortByNameButton.addEventListener('click', () => {
-  items.sort((a, b) => a.name.localeCompare(b.name));
-  displayItems(items);
-});
-
-sortByPriceButton.addEventListener('click', () => {
-  items.sort((a, b) => a.price - b.price);
-  displayItems(items);
 });

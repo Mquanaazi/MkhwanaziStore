@@ -182,3 +182,68 @@ footer{
     background-color: #abcfd5;
 
   }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 10px;
+    border: 5px solid #6ff7b7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.product-card:hover {
+  background-color: #469dc9;
+  padding: 10px;
+  border: 5px solid #c16ff7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.product-card img {
+  width: 70%; 
+  height: 80%; 
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.product-card h2 {
+    font-size: 14px;
+    margin-top: 10px;
+}
+form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #94c1db;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.product-card p {
+    font-size: 10px;
+    color: #666;
+}

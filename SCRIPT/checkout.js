@@ -1,8 +1,8 @@
 
 //___________________________________________________________________________
 // Get the table body element
-const tableBody = document.getElementById('table-body');
-const clearCartButton = document.getElementById('clearCart');
+let tableBody = document.getElementById('table-body');
+let clearCartButton = document.getElementById('clearCart');
 
 clearCartButton.addEventListener('click', () => {
   // Clear the cart
@@ -14,7 +14,7 @@ clearCartButton.addEventListener('click', () => {
 
 // Function to generate table rows
 function generateTableRow(item) {
-  const row = document.createElement('tr');
+  let row = document.createElement('tr');
   row.innerHTML = `
   
     <td>${item.id}</td>
@@ -30,11 +30,11 @@ function generateTableRow(item) {
 }
 
 // Get the cart items from local storage
-const cart = JSON.parse(localStorage.getItem('cart'));
+let cart = JSON.parse(localStorage.getItem('cart'));
 
 // Generate table rows for purchased products
 cart.forEach((item) => {
-  const row = generateTableRow(item);
+  let row = generateTableRow(item);
   tableBody.appendChild(row);
 });
 //_____________________________________________________________
@@ -53,7 +53,7 @@ function displayCart() {
     });
 
     // Display total price
-    const totalPriceHTML = `
+    let totalPriceHTML = `
         <h1>Total: R${totalPrice.toFixed(2)}</h1>
     `;
     document.write(cartHTML + totalPriceHTML);
@@ -61,8 +61,8 @@ function displayCart() {
 
 displayCart();
 // Get the form and submit button elements
-const form = document.getElementById('form');
-const submitButton = document.getElementById('payment');
+let form = document.getElementById('form');
+let submitButton = document.getElementById('payment');
 
 // Add an event listener to the submit button
 submitButton.addEventListener('click', (e) => {
@@ -70,7 +70,7 @@ submitButton.addEventListener('click', (e) => {
   e.preventDefault();
 
   // Get the form data
-  const formData = new FormData(form);
+  let formData = new FormData(form);
 
   // Check if all form fields are filled in
   if (formData.get('name') && 

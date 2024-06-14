@@ -86,6 +86,7 @@ function displayItems(items) {
     `;
     main.appendChild(card);
   });
+  
 }
 
 //target the categories using DOM manipulation
@@ -147,32 +148,48 @@ document.getElementById('dropdown-item7').addEventListener('click', () => {
 let searchInput = document.getElementById('search-input');
 let searchButton = document.getElementById('search-button');
 
-// Add an event listener to the search button
-searchButton.addEventListener('click', () => {
-  // Get the search query from the input field
-  let searchValue=searchInput.value.toLowerCase()
-  let searchByNumber=searchInput.value
-  let fileterItems=items.filter(item=>{
-    return item.name.toLowerCase().includes(searchValue)||
-    item.id.toString().includes(searchByNumber)||
-    item.category.toLowerCase().includes(searchValue)
-   
-  })
 
-  // Clear the main element and display the filtered products
-  main.innerHTML = '';
-  filteredProducts.find((item) => {
-    let card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <h2>${item.name}</h2>
-      <p>Category: ${item.category}</p>
-      <p>Price: ${item.price}</p>
-      <p>Quantity: ${item.quantity}</p>
+// Add an event listener to the search button
+searchButton.addEventListener('click', (e) => {
+  // Prevent default form submission behavior
+  e.preventDefault();
+
+  try {
+    // Get the search query from the input field
+    let searchValue = searchInput.value.toLowerCase();
+    let searchByNumber = searchInput.value;
+    let filteredItems = items.filter(item => {
+      return item.name.toLowerCase().includes(searchValue) ||
+        item.id.toString().includes(searchByNumber) ||
+        item.category.toLowerCase().includes(searchValue);
+    });
+
+    // Check if no results were found
+    if (filteredItems.length === 0) {
+      throw new Error('No results found');
+    }
+
+    // Clear the main element and display the filtered products
+    main.innerHTML = '';
+    filteredItems.forEach((item) => {
+      let card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <h2>${item.name}</h2>
+        <p>Category: ${item.category}</p>
+        <p>Price: ${item.price}</p>
+        <p>Quantity: ${item.quantity}</p>
+      `;
+      main.appendChild(card);
+    });
+  } catch (error) {
+    // Display an error message if no results were found
+    main.innerHTML = `
+      <h2>No results found</h2>
+      <p>Sorry, we couldn't find any products matching your search query.</p>
     `;
-    main.appendChild(card);
-  });
+  }
 });
 
 

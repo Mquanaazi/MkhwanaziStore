@@ -11,7 +11,7 @@ function CreateItem(id, name, category, image, description, price, quantity) {
 }
 
    let item1 = new CreateItem(1,"Bucket-Hat","hat","https://mquanaazi.github.io/huluImages/anotherMan.jpg","Men's black bucket hat",855,1)
-   let item2 = new CreateItem(2,"Winter-Hat","hat","https://mquanaazi.github.io/huluImages/anotherWoman.webp","unisex black winter hat",650,1)
+   let item2 = new CreateItem(2,"Winter-Hat","hat","https://mquanaazi.github.io/huluImages/anotherWoman.webp","unisex black winter hat",630,1)
    let item3 = new CreateItem(3,"Bucket-Hat","hat","https://mquanaazi.github.io/huluImages/backetHat.webp","unisex fabiani bucket hat",850,1)
    let item4 = new CreateItem(4,"Back-Pack","bag","https://mquanaazi.github.io/huluImages/backPack.webp","unisex mustard back pack",899.99,1)
    let item5 = new CreateItem(5,"Belt","belt","https://mquanaazi.github.io/huluImages/belt.webp","Men's black belt",550,1)
@@ -50,7 +50,7 @@ let cart = []; // initialize cart as an empty array
 purchaseButtons.forEach(button => {
     button.addEventListener('click', () => {
         let selectedItem = items.find(item => item.price == button.value);
-        let existingItem = cart.find(item => item.id === selectedItem.id);
+        let existingItem = cart.find(item => item.id == selectedItem.id);
 
         if (existingItem) {
             existingItem.quantity++;
@@ -88,79 +88,81 @@ function displayItems(items) {
   });
 }
 
-// // Function to sort items by price
-// function sortByPrice() {
-//   items.sort((a, b) => a.price - b.price);
-//   displayItems(items);
-// }
+//target the categories using DOM manipulation
+let hats=document.getElementById('dropdown-item0')
+let belts=document.getElementById('dropdown-item1')
+let watches=document.getElementById('dropdown-item2')
+let purses=document.getElementById('dropdown-item3')
+let sunglases=document.getElementById('dropdown-item4')
+//create event listiners for filtetering by category
+hats.addEventListener('click', (event) => {
+  let hatss=event.target.getAttribute('value')
+showFiltered(hatss)
+})
+belts.addEventListener('click', (event) => {
+  let beltss=event.target.getAttribute('value')
+showFiltered(beltss)
+})
+watches.addEventListener('click', (event) => {
+  let watchess=event.target.getAttribute('value')
+  showFiltered(watchess)
+  })
+  purses.addEventListener('click', (event) => {
+    let pursess=event.target.getAttribute('value')
+    showFiltered(pursess)
+    })
+      sunglases.addEventListener('click', (event) => {
+        let sunglasess=event.target.getAttribute('value')
+      showFiltered(sunglasess)
+      })
 
-// // Function to sort items by name
-// function sortByName() {
-//   items.sort((a, b) => a.name.localeCompare(b.name));
-//   displayItems(items);
-// }
+function showFiltered(sgqoko) {
+  let a=items.filter(item =>item.category ==sgqoko)
+  displayItems(a)
+  
+}
 
-// Event listeners
+// Add event listeners to sort buttons
+document.getElementById('dropdown-item5').addEventListener('click', () => {
+  items.sort((a, b) => a.name.localeCompare(b.name));
+  displayItems(items);
+});
 
-// Initial display of items
-// document.querySelector('.sort-by-name button').addEventListener("click", sortByNameButton );
-// document.querySelector('.sort-by-price button').addEventListener("click", sortByPriceButton);
-// document.querySelector('.search-button button').addEventListener("click", searchButton);
-// displayItems(items);   
+document.getElementById('dropdown-item6').addEventListener('click', () => {
+  items.sort((a, b) => b.name.localeCompare(a.name));
+  displayItems(items);
+});
 
-// //write a code for the search button to filter the data
-// const searchInput = document.querySelector('.search-input input');
-// const searchButton = document.querySelector('.search-button button');
-// const sortByNameButton = document.querySelector('.sort-by-name button');
-// const sortByPriceButton = document.querySelector('.sort-by-price button');
+document.getElementById('dropdown-item8').addEventListener('click', () => {
+  items.sort((a, b) => a.price - b.price);
+  displayItems(items);
+});
 
-// searchButton.addEventListener('click', () => {
-//   const searchValue = searchInput.value.toLowerCase();
-//   const searchByNumber = searchInput.value;
-//   const filteredItems = items.filter((item) => {
-//     return (
-//       item.id.toString().includes(searchValue) ||
-//       item.name.toLowerCase().includes(searchValue) ||
-//       item.category.toLowerCase().includes(searchValue) ||
-//       item.description.toLowerCase().includes(searchValue) ||
-//       item.price.toString().includes(searchByNumber) ||
-//       item.quantity.toString().includes(searchByNumber)
-//     );
-//   });
+document.getElementById('dropdown-item7').addEventListener('click', () => {
+  items.sort((a, b) => b.price - a.price);
+  displayItems(items);
+});
 
-//   main.innerHTML = ''; // clear the main container
-//   filteredItems.forEach((item) => {
-//     const card = document.createElement('div');
-//     card.className = 'card';
-//     card.innerHTML = `
-//       <img src="${item.image}" alt="${item.name}">
-//       <h2>${item.name}</h2>
-//       <p>Category: ${item.category}</p>
-//       <p>Price: ${item.price}</p>
-//       <p>Quantity: ${item.quantity}</p>
-//     `;
-//     main.appendChild(card);
-//   });
-// });
-// sortByNameButton.addEventListener('click', () => {
-//   items.sort((a, b) => a.name.localeCompare(b.name));
-//   displayItems(items);
-// });
+// Get the search input field and button
+let searchInput = document.getElementById('search-input');
+let searchButton = document.getElementById('search-button');
 
-// sortByPriceButton.addEventListener('click', () => {
-//   items.sort((a, b) => a.price - b.price);
-//   displayItems(items);
-// });
-const filterButton = document.querySelector('.filter-button button');
-const categorySelect = document.querySelector('.category-select select');
+// Add an event listener to the search button
+searchButton.addEventListener('click', () => {
+  // Get the search query from the input field
+  let searchValue=searchInput.value.toLowerCase()
+  let searchByNumber=searchInput.value
+  let fileterItems=items.filter(item=>{
+    return item.name.toLowerCase().includes(searchValue)||
+    item.id.toString().includes(searchByNumber)||
+    item.category.toLowerCase().includes(searchValue)
+   
+  })
 
-filterButton.addEventListener('click', () => {
-  const selectedCategory = categorySelect.value;
-  const filteredItems = items.filter((item) => item.category === selectedCategory);
-
-  main.innerHTML = ''; // clear the main container
-  filteredItems.forEach((item) => {
-    const card = document.createElement('div');
+  // Clear the main element and display the filtered products
+  main.innerHTML = '';
+  filteredProducts.find((item) => {
+    let card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
       <img src="${item.image}" alt="${item.name}">
@@ -172,3 +174,93 @@ filterButton.addEventListener('click', () => {
     main.appendChild(card);
   });
 });
+
+
+
+
+// ________________________________________________________________________________________________________
+// hats = items.filter((item) => item.category === );
+
+  
+
+
+
+  // main.innerHTML = ''; // clear the main container
+  // filteredItems.forEach((item) => {
+  //   let card = document.createElement('div');
+  //   card.className = 'card';
+  //   card.innerHTML = `
+  //   <img src="${item.image}" alt="${item.name}">
+  //   <h2>${item.name}</h2>
+  //   <p>Category: ${item.category}</p>
+  //   <p>Price: ${item.price}</p>
+  //   <p>Quantity: ${item.quantity}</p>
+  //   `;
+  //   main.appendChild(card);
+  //   });
+  //   });
+
+    // ________________________________________________________________________________
+    // function sortByPrice() {
+      // // Function to sort items by price
+      //   items.sort((a, b) => a.price - b.price);
+      //   displayItems(items);
+      // }
+    
+    // // Function to sort items by name
+    // function sortByName() {
+    //   items.sort((a, b) => a.name.localeCompare(b.name));
+    //   displayItems(items);
+    // }
+    
+    // Event listeners
+    
+    // Initial display of items
+    // document.querySelector('.sort-by-name button').addEventListener("click", sortByNameButton );
+    // document.querySelector('.sort-by-price button').addEventListener("click", sortByPriceButton);
+    // document.querySelector('.search-button button').addEventListener("click", searchButton);
+    // displayItems(items);   
+    
+    // //write a code for the search button to filter the data
+    // let searchInput = document.querySelector('.search-input input');
+    // let searchButton = document.querySelector('.search-button button');
+    // let sortByNameButton = document.querySelector('.sort-by-name button');
+    // let sortByPriceButton = document.querySelector('.sort-by-price button');
+    
+    // searchButton.addEventListener('click', () => {
+    //   let searchValue = searchInput.value.toLowerCase();
+    //   let searchByNumber = searchInput.value;
+    //   let filteredItems = items.filter((item) => {
+    //     return (
+    //       item.id.toString().includes(searchValue) ||
+    //       item.name.toLowerCase().includes(searchValue) ||
+    //       item.category.toLowerCase().includes(searchValue) ||
+    //       item.description.toLowerCase().includes(searchValue) ||
+    //       item.price.toString().includes(searchByNumber) ||
+    //       item.quantity.toString().includes(searchByNumber)
+    //     );
+    //   });
+    
+    //   main.innerHTML = ''; // clear the main container
+    //   filteredItems.forEach((item) => {
+    //     let card = document.createElement('div');
+    //     card.className = 'card';
+    //     card.innerHTML = `
+    //       <img src="${item.image}" alt="${item.name}">
+    //       <h2>${item.name}</h2>
+    //       <p>Category: ${item.category}</p>
+    //       <p>Price: ${item.price}</p>
+    //       <p>Quantity: ${item.quantity}</p>
+    //     `;
+    //     main.appendChild(card);
+    //   });
+    // });
+    // sortByNameButton.addEventListener('click', () => {
+    //   items.sort((a, b) => a.name.localeCompare(b.name));
+    //   displayItems(items);
+    // });
+    
+    // sortByPriceButton.addEventListener('click', () => {
+    //   items.sort((a, b) => a.price - b.price);
+    //   displayItems(items);
+    // });

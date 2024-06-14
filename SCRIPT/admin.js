@@ -4,6 +4,8 @@ let productGrid = document.querySelector('.product-grid');
 // retrieve products from local storage
 let items = JSON.parse(localStorage.getItem('items'));
 
+//...
+
 // display products in grid
 items.forEach((item) => {
     let productCard = document.createElement('div');
@@ -15,16 +17,25 @@ items.forEach((item) => {
         <p>Price: R${item.price}</p>
         <p>Quantity: ${item.quantity}</p>
     `;
+    productCard.addEventListener('click', () => {
+        // remove item from local storage
+        let index = items.indexOf(item);
+        if (index!== -1) {
+            items.splice(index, 1);
+            localStorage.setItem('items', JSON.stringify(items));
+            productCard.remove(); // remove the product card element
+        }
+    });
     productGrid.appendChild(productCard);
 });
 
 // Add event listener to edit product button
 productGrid.addEventListener('click', (e) => {
     if (e.target.tagName === 'H2') {
-        const productId = e.target.textContent;
-        const product = items.find((item) => item.name === productId);
+        let productId = e.target.textContent;
+        let product = items.find((item) => item.name === productId);
         // display edit product form
-        const editForm = document.createElement('form');
+        let editForm = document.createElement('form');
         editForm.innerHTML = `
             <label for="name">Name:</label>
             <input type="text" id="name" value="${product.name}">
@@ -43,9 +54,10 @@ productGrid.addEventListener('click', (e) => {
 // Add event listener to update product
 main.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const productId = formData.get('name');
-    const product = items.find((item) => item.name === productId);
+    //create formdata contructor function
+    let formData = new FormData(e.target);
+    let productId = formData.get('name');
+    let product = items.find((item) => item.name === productId);
     product.name = formData.get('name');
     product.category = formData.get('category');
     product.price = formData.get('price');
@@ -53,3 +65,4 @@ main.addEventListener('submit', (e) => {
     localStorage.setItem('items', JSON.stringify(items));
     location.reload();
 });
+

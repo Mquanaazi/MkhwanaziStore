@@ -79,41 +79,46 @@
         
             <!-- search -->
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+              <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
             </form>
           </div>
         </div>
       </nav>
 </header>
     <!-- filter -->
-    <main id="main"><div id="search-sort">
-      <div class="sort-by-name">
-        <button>Sort by name</button>
-        </div>
-        <div class="sort-by-price">
-          <button>Sort by price</button>
-          </div>
-          
-          <div class="search-input">
-            <input type="text" placeholder="search">
-            </div>
-            
-            <div class="search-button">
-              <button>Search</button>
-              </div>
-              
-              </div>
-              
-              <select class="category-select">
-                <option value="">All</option>
-                <option value="hat">Hats</option>
-                <option value="bag">Bags</option>
-                <option value="belt">Belts</option>
-                <option value="watch">Watches</option>
-                
-              </select>
-              <button class="filter-button">Filter</button>
+    <main id="main">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="filter-button">
+          CATEGORIES
+        </button>
+        <ul class="dropdown-menu">
+        <li id="dropdown-item0" value="hat">hats</li>
+        <li id="dropdown-item1" value="belt">belts</li>
+        <li id="dropdown-item2" value="watch">watches</li>
+        <li id="dropdown-item3"value="purse">purses</li>
+        <li id="dropdown-item4" value="shades">sun glasses</li>
+          </ul>
+      </div>
+      <div class="dropdown-name">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="filter-button">
+          Sort By Name
+        </button>
+        <ul class="dropdown-menu" id="name">
+        <li id="dropdown-item5" value="sortName">A-Z</li>
+        <li id="dropdown-item6" value="nameSort">Z-A</li>
+          </ul>
+      </div>
+      <div class="dropdown-pice">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="filter-button">
+          Sort By Price
+        </button>
+        <ul class="dropdown-menu" id="price">
+        <li id="dropdown-item7" value="sortName">high-low</li>
+        <li id="dropdown-item8" value="nameSort">low-high</li>
+          </ul>
+      </div>
+              <!-- <button class="sort-button">sort</button> -->
     </main>
 
     <footer id="footer">

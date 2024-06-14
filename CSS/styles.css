@@ -180,6 +180,7 @@ footer{
     table-layout: auto;
     box-shadow: #010857;
     background-color: #abcfd5;
+    
 
   }
   .product-grid {
@@ -246,4 +247,9 @@ input[type="submit"]:hover {
 .product-card p {
     font-size: 10px;
     color: #666;
+}
+nav ul li:hover{
+  color: #2803e6;
+  border-radius: 10%;
+  border-color: #469dc9;
 }

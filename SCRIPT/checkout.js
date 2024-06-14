@@ -16,6 +16,7 @@ clearCartButton.addEventListener('click', () => {
 function generateTableRow(item) {
   const row = document.createElement('tr');
   row.innerHTML = `
+  
     <td>${item.id}</td>
     <td>${item.name}</td>
     <td>${item.category}</td>
@@ -72,7 +73,13 @@ submitButton.addEventListener('click', (e) => {
   const formData = new FormData(form);
 
   // Check if all form fields are filled in
-  if (formData.get('name') && formData.get('email') && formData.get('phone') && formData.get('card') && formData.get('name') && formData.get('expiration-date') && formData.get('CVV')) {
+  if (formData.get('name') && 
+  formData.get('email') && 
+  formData.get('phone') && 
+  formData.get('card') && 
+  formData.get('name') && 
+  formData.get('expiration-date') && 
+  formData.get('CVV')) {
     // Display a popup message
     alert('Thank you for shopping with us!');
      
